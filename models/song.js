@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const SongSchema = new Schema({
-  name: { type: String, required: true, maxLength: 20 },
+  name: { type: String, required: true, maxLength: 100 },
   duration: { type: String, required: true },
   album: { type: Schema.Types.ObjectId, ref: "Album", required: true },
 });
