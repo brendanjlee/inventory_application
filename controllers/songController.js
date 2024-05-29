@@ -2,7 +2,20 @@ const Song = require("../models/song");
 const asyncHandler = require("express-async-handler");
 
 const song_list = asyncHandler(async (req, res, next) => {
-  res.send("Not Implemented: song List");
+  const allSongs = await Song.find()
+    .populate({
+      path: "album",
+      populate: {
+        path: "artist",
+      },
+    })
+    .sort({ name: 1 })
+    .exec();
+
+  res.render("song_list", {
+    title: "All Songs",
+    song_list: allSongs,
+  });
 });
 
 const song_detail = asyncHandler(async (req, res, next) => {

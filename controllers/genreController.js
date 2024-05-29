@@ -2,7 +2,12 @@ const Genre = require("../models/genre");
 const asyncHandler = require("express-async-handler");
 
 const genre_list = asyncHandler(async (req, res, next) => {
-  res.send("Not Implemented: genre List");
+  const allGenres = await Genre.find().exec();
+
+  res.render("genre_list", {
+    title: "All Genres",
+    genre_list: allGenres,
+  });
 });
 
 const genre_detail = asyncHandler(async (req, res, next) => {

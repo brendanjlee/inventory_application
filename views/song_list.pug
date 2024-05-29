@@ -1,0 +1,14 @@
+extend layout
+
+block content
+  h1=title
+  p Explore all the songs
+
+  if song_list.length
+    ul
+      each song in song_list
+        li
+          a(href=song.url) #{song.name}
+          |  [#{song.album.artist.name}, #{song.album.name}]
+  else
+    p There are no genres
