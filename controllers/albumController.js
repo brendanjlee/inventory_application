@@ -1,8 +1,30 @@
 const Album = require("../models/album");
+const Artist = require("../models/artist");
+const CD = require("../models/cd");
+const Song = require("../models/song");
+const Genre = require("../models/genre");
+
 const asyncHandler = require("express-async-handler");
 
 const index = asyncHandler(async (req, res, next) => {
-  res.send("NOT Implemented: Site Home Page");
+  // fetch details for all instances
+  const [numArtists, numAlbums, numSongs, numCDs, numGenres] =
+    await Promise.all([
+      Artist.countDocuments({}).exec(),
+      Album.countDocuments({}).exec(),
+      Song.countDocuments({}).exec(),
+      CD.countDocuments({}).exec(),
+      Genre.countDocuments({}).exec(),
+    ]);
+
+  res.render("index", {
+    title: "Music Store Home",
+    artist_count: numArtists,
+    album_count: numAlbums,
+    song_count: numSongs,
+    cd_count: numCDs,
+    genre_count: numGenres,
+  });
 });
 
 const album_list = asyncHandler(async (req, res, next) => {
