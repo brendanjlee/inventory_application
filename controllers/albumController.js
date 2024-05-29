@@ -1,6 +1,10 @@
 const Album = require("../models/album");
 const asyncHandler = require("express-async-handler");
 
+const index = asyncHandler(async (req, res, next) => {
+  res.send("NOT Implemented: Site Home Page");
+});
+
 const album_list = asyncHandler(async (req, res, next) => {
   res.send("Not Implemented: album List");
 });
@@ -40,6 +44,7 @@ const album_update_post = asyncHandler(async (req, res, next) => {
 });
 
 module.exports = {
+  index,
   album_list,
   album_detail,
   album_create_get,

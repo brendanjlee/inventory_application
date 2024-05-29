@@ -1,10 +1,12 @@
 const Artist = require("../models/artist");
 const asyncHandler = require("express-async-handler");
 
+// GET list
 const artist_list = asyncHandler(async (req, res, next) => {
   res.send("Not Implemented: Artist List");
 });
 
+// GET detail
 const artist_detail = asyncHandler(async (req, res, next) => {
   res.send(`Not Implemented: Artist detail: ${req.params.id}`);
 });
