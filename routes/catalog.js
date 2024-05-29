@@ -52,7 +52,7 @@ router.post("/artist/:id/delete", artist_controller.artist_delete_post);
 router.get("/artist/:id/update", artist_controller.artist_update_get);
 
 // POST update
-router.get("/artist/:id/update", artist_controller.artist_update_post);
+router.post("/artist/:id/update", artist_controller.artist_update_post);
 
 // GET detail
 router.get("/artist/:id", artist_controller.artist_detail);
@@ -77,7 +77,7 @@ router.post("/song/:id/delete", song_controller.song_delete_post);
 router.get("/song/:id/update", song_controller.song_update_get);
 
 // POST update
-router.get("/song/:id/update", song_controller.song_update_post);
+router.post("/song/:id/update", song_controller.song_update_post);
 
 // GET detail
 router.get("/song/:id", song_controller.song_detail);
@@ -102,7 +102,7 @@ router.post("/cd/:id/delete", cd_controller.cd_delete_post);
 router.get("/cd/:id/update", cd_controller.cd_update_get);
 
 // POST update
-router.get("/cd/:id/update", cd_controller.cd_update_post);
+router.post("/cd/:id/update", cd_controller.cd_update_post);
 
 // GET detail
 router.get("/cd/:id", cd_controller.cd_detail);
@@ -127,7 +127,7 @@ router.post("/genre/:id/delete", genre_controller.genre_delete_post);
 router.get("/genre/:id/update", genre_controller.genre_update_get);
 
 // POST update
-router.get("/genre/:id/update", genre_controller.genre_update_post);
+router.post("/genre/:id/update", genre_controller.genre_update_post);
 
 // GET detail
 router.get("/genre/:id", genre_controller.genre_detail);
