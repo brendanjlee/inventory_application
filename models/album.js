@@ -12,7 +12,7 @@ const AlbumSchema = new Schema({
 });
 
 AlbumSchema.virtual("url").get(function () {
-  return `catalog/album/${this._id}`;
+  return `/catalog/album/${this._id}`;
 });
 
 module.exports = mongoose.model("Album", AlbumSchema);

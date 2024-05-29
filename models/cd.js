@@ -10,7 +10,7 @@ const CDSchema = new Schema({
 });
 
 CDSchema.virtual("url").get(function () {
-  return `catalog/cd/${this._id}`;
+  return `/catalog/cd/${this._id}`;
 });
 
 module.exports = mongoose.model("CD", CDSchema);
