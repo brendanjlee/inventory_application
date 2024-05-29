@@ -3,7 +3,13 @@ const asyncHandler = require("express-async-handler");
 
 // GET list
 const artist_list = asyncHandler(async (req, res, next) => {
-  res.send("Not Implemented: Artist List");
+  // res.send("artist list not iggmplemented");
+  const allArtists = await Artist.find().sort({ name: 1 }).exec();
+
+  res.render("artist_list", {
+    title: "All Artists",
+    artist_list: allArtists,
+  });
 });
 
 // GET detail
