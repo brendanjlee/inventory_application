@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 #{title}
+  p Albums in our catalog
+
+  if album_list.length
+    ul
+      each album in album_list
+        li
+          a(href=album.url) #{album.name}
+          |  #{album.artist.name}
+  else
+    p There are no albums

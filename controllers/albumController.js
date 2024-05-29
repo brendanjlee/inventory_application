@@ -28,7 +28,15 @@ const index = asyncHandler(async (req, res, next) => {
 });
 
 const album_list = asyncHandler(async (req, res, next) => {
-  res.send("Not Implemented: album List");
+  const allAlbums = await Album.find()
+    .populate("artist genre")
+    .sort({ name: 1 })
+    .exec();
+
+  res.render("album_list", {
+    title: "All Albums",
+    album_list: allAlbums,
+  });
 });
 
 const album_detail = asyncHandler(async (req, res, next) => {
