@@ -2,7 +2,19 @@ const CD = require("../models/cd");
 const asyncHandler = require("express-async-handler");
 
 const cd_list = asyncHandler(async (req, res, next) => {
-  res.send("Not Implemented: cd List");
+  const allCDs = await CD.find()
+    .populate({
+      path: "album",
+      populate: {
+        path: "artist",
+      },
+    })
+    .exec();
+
+  res.render("cd_list", {
+    title: "All Album CD's",
+    cd_list: allCDs,
+  });
 });
 
 const cd_detail = asyncHandler(async (req, res, next) => {

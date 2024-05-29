@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1 #{title}
+  p Check out our stock! 
+
+  if cd_list.length
+    ul
+      each cd in cd_list
+        li
+          a(href=cd.url) #{cd.album.name}
+          |  by #{cd.album.artist.name}
+          ul
+            li Price: $#{cd.price}, Stock: #{cd.stock}
+  else
+    p There are no artists
