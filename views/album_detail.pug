@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+  h1 Artist: #{album.artist.name}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    p #{album.description}
+
+    h2(style='font-size: 1.5rem') Songs
+
+    if album_songs.length
+      dl
+        each song in album_songs 
+          dt
+            a(href=song.url) #{song.name} (#{song.duration})
+    else
+      p This album has no songs
+
+  p 
+    a(href=album.url + '/delete') Delete Album
+  p
+    a(href=album.url + '/update') Update Album

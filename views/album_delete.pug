@@ -1,0 +1,21 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{album.name}
+
+  if album_songs.length  
+    p The following songs will also be deleted if you delete this album
+    div(style='margin-left:20px;margin-top:20px')
+      h4 Album Songs
+        ul
+          each song in album_songs
+            li
+              a(href=song.url) #{song.name}
+    
+  p Do you really want to delete this album?
+
+  form(method='POST')
+    div.form-group
+      input#albumid.form-control(type='hidden', name='albumid', value=album._id)
+    button.btn.btn-primary(type='submit') Delete
