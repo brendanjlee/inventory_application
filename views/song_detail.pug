@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+  h1 Song: #{song.name}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+  p Duration: #{song.duration}
+
+  p From album 
+    a(href=song.album.url) #{song.album.name}
+
+  p 
+    a(href=song.url + '/delete') Delete Song
+  p
+    a(href=song.url + '/update') Update Song

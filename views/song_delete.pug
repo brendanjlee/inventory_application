@@ -1,0 +1,12 @@
+extends layout
+
+block content
+
+  h1 Song: #{song.name}
+
+  p do you really want to delete this song?
+  
+  form(method='POST')
+    div.form-group
+      input#songid.form-control(type='hidden', name='songid', value=song._id)
+    button.btn.btn-primary(type='submit') Delete

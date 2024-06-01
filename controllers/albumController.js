@@ -6,7 +6,6 @@ const Genre = require("../models/genre");
 
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
-const song = require("../models/song");
 
 const index = asyncHandler(async (req, res, next) => {
   // fetch details for all instances
@@ -67,8 +66,6 @@ const album_create_get = asyncHandler(async (req, res, next) => {
     Artist.find().sort({ name: 1 }).exec(),
     Genre.find().sort({ name: 1 }).exec(),
   ]);
-
-  console.log(allGenres);
 
   res.render("album_form", {
     title: "Create Album",
@@ -173,7 +170,7 @@ const album_delete_post = asyncHandler(async (req, res, next) => {
 // GET update
 const album_update_get = asyncHandler(async (req, res, next) => {
   const [album, allArtists, allGenres] = await Promise.all([
-    await Album.findById(req.params.id).exec(),
+    Album.findById(req.params.id).exec(),
     Artist.find().sort({ name: 1 }).exec(),
     Genre.find().sort({ name: 1 }).exec(),
   ]);
