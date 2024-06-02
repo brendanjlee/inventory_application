@@ -18,6 +18,10 @@ MVC: The project is based on the MVC code architecture.
 - MongoDB/Mongoose
 - MongoDB Atlas
 
+## Entity
+![image](https://github.com/brendanjlee/inventory_application/assets/31088155/f9563720-b5b6-45a6-a102-0491558e5e5a)
+
+
 ## Preview
 ![image](https://github.com/brendanjlee/inventory_application/assets/31088155/0e77fe6b-32ab-4187-b24d-eb273372e2d7)
 
